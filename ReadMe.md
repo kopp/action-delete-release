@@ -17,7 +17,6 @@ jobs:
         uses: kopp/action-delete-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
         with:
           tag_name: tag-here
 

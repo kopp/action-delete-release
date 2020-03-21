@@ -5,11 +5,14 @@ description: "Delete a release identified by its tag."
 author: "kopp"
 inputs:
   tag_name:
-    description: "The tag of the release (as can be seen in the URL of an artefact: https://github.com/<name>/<repo>/releases/download/<TAG_NAME>/<artefact>)"
+    description: "The tag of the release (as can be seen in the URL of an artefact: https://github.com/<org>/<repo>/releases/download/<TAG_NAME>/<artefact>)."
     required: true
+  github_repository:
+    description: "The repository containing the release in the form <org>/<repo> (as can be seen in the URL of a repository: https://github.com/<org>/<repo>)."
+    required: false
+    default: "${{ github.repository }}"
 env:
-  "GITHUB_TOKEN": "As provided by Github Actions"
-  "GITHUB_REPOSITORY": "As provided by Github Actions"
+  "GITHUB_TOKEN": "Authentication token, as provided by Github Actions secrets.GITHUB_TOKEN."
 runs:
   using: "node12"
   main: "dist/index.js"
