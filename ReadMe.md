@@ -1,5 +1,8 @@
-# Delete an existing release before re-creating it
+# Delete an existing release
 
+
+In the following example, delete a previously existing release before creating
+a new one with the same tag.
 
 ```yml
 name: Main
@@ -19,6 +22,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: tag-here
+          # by default uses current repository; specify a different one using `github_repository: org/repo`
 
       - name: Release
         uses: softprops/action-gh-release@v1
