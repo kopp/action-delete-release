@@ -1,5 +1,6 @@
-### Delete latest before release
-In this case i want keep my repository just 1 release.
+# Delete an existing release before re-creating it
+
+
 ```yml
 name: Main
 
@@ -13,10 +14,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Delete
-        uses: ame-yu/action-delete-latest-release@v1
+        uses: kopp/action-delete-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: $ {{ github.repository }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          TAG_NAME: tag-here
 
       - name: Release
         uses: softprops/action-gh-release@v1
