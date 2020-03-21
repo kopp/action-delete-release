@@ -1,15 +1,18 @@
 # https://help.github.com/en/articles/metadata-syntax-for-github-actions
 
-name: 'Delete release'
-description: 'Delete release'
+name: "Delete Release"
+description: "Delete a release identified by its tag."
 author: "kopp"
+inputs:
+  tag_name:
+    description: "The tag of the release (as can be seen in the URL of an artefact: https://github.com/<name>/<repo>/releases/download/<TAG_NAME>/<artefact>)"
+    required: true
 env:
   "GITHUB_TOKEN": "As provided by Github Actions"
   "GITHUB_REPOSITORY": "As provided by Github Actions"
-  "TAG_NAME": "The tag of the release (as can be seen in the URL of an artefact: https://github.com/<name>/<repo>/releases/download/<TAG_NAME>/<artefact>)"
 runs:
   using: "node12"
   main: "dist/index.js"
 branding:
-  color: "red"
+  color: "orange"
   icon: "delete"

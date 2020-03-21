@@ -18,7 +18,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-          TAG_NAME: tag-here
+        with:
+          tag_name: tag-here
 
       - name: Release
         uses: softprops/action-gh-release@v1
